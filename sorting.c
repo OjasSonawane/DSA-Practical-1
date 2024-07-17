@@ -1,48 +1,75 @@
-#include <stdio.h>
+#include<stdio.h>
+void Bubble_sort_ascending(int ar[],int n)
+{
+  int i,j,temp;
 
-//bubble sorting 
-void bubbleSort(int arr[], int n) {
-    int i, j, temp;
-
-    for (i = 0; i < n - 1; i++) {
-        for (j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-
-                // Swap elements
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
+  for(i=0;i<(n-1);i++)
+  {
+    for(j=0;j<(n-1-i);j++)
+    {
+       if(ar[j]>ar[j+1])      
+       {
+        temp = ar[j];
+        ar[j] = ar[j+1];
+        ar[j+1] = temp;
+       }
     }
+  }
 }
 
-//initializing main function
-int main() {
+void Bubble_sort_descending(int ar[],int n)
+{
+  int i,j,temp;
 
-    //declaration of an array in random order
-    int arr[5] = {20, 10, 50, 40, 30};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    
-    printf("Array before sorting:\n");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+  for(i=0;i<(n-1);i++)
+  {
+    for(j=0;j<(n-1-i);j++)
+    {
+       if(ar[j]<ar[j+1]) 
+       {
+        temp = ar[j];
+        ar[j] = ar[j+1];
+        ar[j+1] = temp;
+       }
     }
-    
-    
-    bubbleSort(arr, n);
-    
-    //printing the ramdomized array in an ascending order
-    printf("\nArray in ascending order:\n");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    
-    //printing the ramdomized array in an descending order
-    printf("\nArray in descending order:\n");
-    for (int i=0 ; i > n; i++){
-        printf("%d",arr[i]);
-    }
-    return 0;
+  }
 }
+int main()
+{
+  int i,n;
 
+  printf("Enter the array size:");
+  scanf("%d",&n);
+ int arr[n];
+  printf("\nEnter the array elements:");
+
+  for(i=0;i<n;i++)
+  {
+     scanf("%d",&arr[i]);
+  }
+  printf("\nThe array elements before sorting are\n:");
+ for(i=0;i<n;i++)
+  {
+  printf("%d\t",arr[i]);
+  }
+
+
+  Bubble_sort_ascending(arr,n);
+
+  printf("\nThe array elements after ascending sorting are\n:");
+ for(i=0;i<n;i++)
+  {
+  printf("%d\t",arr[i]);
+  }
+printf("\nThe array elements after descending sorting are\n:");
+
+ Bubble_sort_descending(arr,n);
+ for(i=0;i<n;i++)
+  {
+  printf("%d\t",arr[i]);
+  }
+
+return 0;
+
+
+}
