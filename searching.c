@@ -1,16 +1,39 @@
-#include <stdio.h>
-int main(){
+#include<stdio.h>
+void search(int ar[],int n)
+{
+  int i,x;
+  printf("Enter the element:");
+  scanf("%d",&x);
 
-    int i,j,pos ;
-
-    //printing the elements given in an array
-
-    int arr[5]={10,20,30,40,50};
-    for(int i=0; i<5; i++) {
-        printf("%d",arr[i]);
+  for ( i = 0; i <n; i++)
+  {
+    if(ar[i]==x)
+    {
+      printf("Element found at position %d with index %d ",i+1,i);
+      break;
     }
+  }
+  if(i==n)
+  {
+    printf("Element not found");
+  }
+  
+}
+int main()
+{
+  int n,i;
+  printf("Enter a array size");
+  scanf("%d",&n);
 
-    
+  int arr[n];
 
+printf("\nEnter the array elements:\n");
+  for(i=0;i<n;i++)
+  {
+    scanf("%d",&arr[i]);
+  }
 
+  search(arr,n);
+
+  return 0;
 }
